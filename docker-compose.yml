@@ -1,0 +1,35 @@
+version: '3'
+services:
+  postgresql:
+    image: postgres:13
+    env_file: ./app/config/.env
+    volumes:
+      - $HOME/postgresql/data:/var/lib/postgresql/data
+    networks:
+      - my-network
+
+  service:  # django
+    build: app
+    env_file: ./app/config/.env
+    networks:
+      - my-network
+    restart: always
+
+  nginx:
+    image: nginx:latest
+    networks:
+      - my-network
+    volumes:
+      - ./app/static:/opt/app/static:ro
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./configs:/etc/nginx/conf.d:ro
+      - ./data:/data/:ro
+    depends_on:
+      - service
+    restart: always
+    ports:
+      - "80:80"
+
+networks:
+  my-network:
+    external: true

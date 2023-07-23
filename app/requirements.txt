@@ -1,0 +1,24 @@
+faker
+psycopg2-binary==2.9
+python-dotenv
+
+django==3.2
+flake8==3.9  # конфликт зависимостей с 4.0
+
+django-split-settings
+django-debug-toolbar==3.4.0
+pytest
+
+# для git hook
+pre-commit==2.15.0
+wemake-python-styleguide==0.15.3
+flake8-bandit==2.1.2
+bandit==1.7.2
+
+isort
+django_rename_app
+
+# Спринт 2
+uwsgi==2.0.20
+django-extensions
+django-cors-headers
