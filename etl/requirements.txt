@@ -1,0 +1,6 @@
+django==3.2
+psycopg2-binary==2.9
+python-dotenv
+elasticsearch==8.7.0  # неспортивно, чуть старше версию но не слишком. 8.6.2
+pydantic
+python-dateutil
