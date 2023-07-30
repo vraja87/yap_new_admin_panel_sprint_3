@@ -1,4 +1,4 @@
-version: '3'
+version: '2.3'
 services:
   postgresql:
     image: postgres:13
@@ -29,6 +29,33 @@ services:
     restart: always
     ports:
       - "80:80"
+
+  elastic_search:
+    image: elasticsearch:8.6.2
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - 'ES_JAVA_OPTS=-Xms500m -Xmx500m'
+    networks:
+      - my-network
+    depends_on:
+      - service
+      - postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "curl --silent --fail localhost:9200/_cluster/health || exit 1" ]
+      interval: 30s
+      timeout: 30s
+      retries: 5
+
+  etl:
+    build: etl
+    env_file: ./etl/.env
+    networks:
+      - my-network
+    restart: always
+    depends_on:
+      elastic_search:
+        condition: service_healthy
 
 networks:
   my-network:
