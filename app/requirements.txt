@@ -1,13 +1,13 @@
-faker
+faker==19.2.0
 psycopg2-binary==2.9
-python-dotenv
+python-dotenv==1.0.0
 
 django==3.2
 flake8==3.9  # конфликт зависимостей с 4.0
 
-django-split-settings
+django-split-settings==1.2.0
 django-debug-toolbar==3.4.0
-pytest
+pytest==7.4.0
 
 # для git hook
 pre-commit==2.15.0
@@ -15,10 +15,10 @@ wemake-python-styleguide==0.15.3
 flake8-bandit==2.1.2
 bandit==1.7.2
 
-isort
-django_rename_app
+isort==5.12.0
+django-rename-app==0.1.6
 
 # Спринт 2
 uwsgi==2.0.20
-django-extensions
-django-cors-headers
+django-extensions==3.2.3
+django-cors-headers==4.2.0

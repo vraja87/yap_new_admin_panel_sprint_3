@@ -1,5 +1,5 @@
 #yandex
-config/.env
+.env
 docker-compose.override.yml
 
 # Byte-compiled / optimized / DLL files

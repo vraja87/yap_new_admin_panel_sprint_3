@@ -1,6 +1,7 @@
 django==3.2
 psycopg2-binary==2.9
-python-dotenv
+python-dotenv==1.0.0
 elasticsearch==8.7.0  # неспортивно, чуть старше версию но не слишком. 8.6.2
-pydantic
-python-dateutil
+pydantic==2.0.3
+pydantic_settings==2.0.2
+python-dateutil==2.8.2
